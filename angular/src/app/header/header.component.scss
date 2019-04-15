@@ -1,0 +1,23 @@
+.header-container{
+    height: 60px;
+    background: linear-gradient(to bottom right, #b291ca,#210436);
+    padding: 0px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.company-logo{
+    min-width: 100px;
+    max-width: 100px;
+}
+
+.company-logo-Mob{
+    min-width: 60px;
+    max-width: 60px;
+}
+
+.heading{
+    color: #ffffff;
+    font-weight: bold;
+}

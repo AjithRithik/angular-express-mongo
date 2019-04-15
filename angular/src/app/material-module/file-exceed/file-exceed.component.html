@@ -1,0 +1,18 @@
+<div *ngIf="data.type == 'fILE_EXCEED'">
+  <div *ngIf="data.files && data.files.length > 0">
+      <div class="f18 bold">Size exceeds 8MB can't upload following file:</div>
+      <div *ngFor="let file of data.files" class="f12">{{file.name}}</div>
+  </div>
+  <div *ngIf="data.invalidFiles && data.invalidFiles.length > 0">
+      <div class="f18 bold">Unsupported files:</div>
+      <div *ngFor="let file of data.invalidFiles" class="f12">{{file.name}}</div>
+  </div>
+  <div *ngIf="data.failed && data.failed.length > 0">
+      <div class="f18 bold">Upload Failed!</div>
+      <div *ngFor="let file of data.failed" class="f12">{{file.name}}</div>
+  </div>
+</div>
+
+<div *ngIf="data.type == 'FAILED_SUBMIT'">
+  <div class="f18">Report Submit Failed</div>
+</div>

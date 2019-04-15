@@ -1,0 +1,123 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/*common Classes  for width, margin,padding, height, fontSize*/
+
+//Need common css genarate using this
+$widthRange: 100; // used in the width for loop
+$layoutRange: 100; //used in margin for loop
+$fontRange: 40; // used in the font for loop
+$fontWeightRange: 10; // used in the font weight for loop
+$sides: (top, bottom, left, right);
+//generate width and height 
+@for $i from 1 through $widthRange {
+    .w#{$i*5} {
+        width: $i*5px !important;
+    }
+    .w#{$i*5}p {
+        width: percentage($i*5/100) !important;
+    }
+    .wm#{$i*5}p {
+        min-width: percentage($i*5/100) !important;
+        max-width: percentage($i*5/100) !important;
+    }
+    .h#{$i*5}p{
+        height: percentage($i*5/100) !important;
+    }
+    .mwidth#{$i*10} {
+        max-width: $i*10px !important;
+        min-width: $i*10px !important;
+    }
+    .h#{$i*5} {
+        height: $i*5px !important;
+    }
+    .height#{$i*10} {
+        max-height: $i*10px !important;
+        min-height: $i*10px !important;
+    }
+}
+
+//generate padding,margin layouts
+@for $i from 0 through $layoutRange {
+    @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}#{$i} {
+            margin-#{$side}: #{$i}px !important;
+        }
+        .p#{str-slice($side, 0, 1)}#{$i} {
+            padding-#{$side}: #{$i}px !important;
+        }
+        .m#{$i} {
+            margin: #{$i}px !important;
+        }
+        .p#{$i} {
+            padding: #{$i}px !important;
+        }
+    }
+}
+
+//generate font size.
+@for $i from 10 through $fontRange {
+    .f#{$i} {
+        font-size: #{$i}px !important;
+    }
+}
+
+//genrate font weight.
+@for $i from 1 through $fontWeightRange {
+    .fw#{$i*100} {
+        font-weight: #{$i*100} !important;
+    }
+}  
+
+.bold{
+    font-weight: bold;
+}
+
+.center{
+    text-align: center;
+}
+.caps{
+    text-transform: uppercase;
+}
+
+.flt{
+    float: left;
+}
+
+.bgTheme{
+    margin: 0px;
+    user-select: none;
+    font-family: monospace;
+    background: linear-gradient(to bottom right, #b291ca,#210436);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+}
+
+.linkPassword{
+    color: #125ed0;
+    font-weight: bold;
+    font-style: italic
+}
+
+.actionContainer{
+    padding: 0px 10px 10px 10px !important;
+}
+
+.iconArrow{
+    font-size: 20px !important;
+    position: absolute;
+    top: 8px;
+}
+
+.innerLayer{
+    height: 100%;
+    background: white;
+    border-top: 3px solid #c47f10;
+    overflow: auto;
+}
+
+.tc--green{
+    color: green;
+}
+

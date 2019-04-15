@@ -1,0 +1,45 @@
+<div>
+  <!-- Heading Row-->
+    <div fxLayout="row" class="f20 p20" fxLayoutAlign="center center">
+      <div class="w60">
+        <mat-icon class="f40">people</mat-icon>
+      </div>
+      <div class="p8 bold">
+        User Access 
+      </div>
+    </div>
+    <!-- Heading Row End-->
+
+    <!-- Table Row-->
+      <!-- DeskTop view-->
+      <div ngClass.gt-md="p20" fxLayoutAlign.gt-md="center start">
+        <mat-table [dataSource]="dataSource" matSort class="p0 m0">
+            <ng-container *ngFor="let column of columns"
+                          [matColumnDef]="column.displayedNames">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="center" ngClass.gt-md="{{column.width}}"
+                ngClass.lt-md="{{column.mobwidth}}">
+                  {{ column.displayedNames | titlecase }}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let item">{{ item[column] }}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+          </mat-table>
+        </div>
+      <!-- DeskTop view End-->
+
+      <!-- Mobile view Start-->
+      
+      <!-- MObile view End-->
+      
+    <!-- Table Row End-->
+
+    <!-- Add button-->
+        <div ngClass.gt-md="addIcon" ngClass.lt-md="addIconMob">
+            <button mat-fab class="addBtn" (click)="openPopUp()">
+              <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    <!-- Add Button End-->
+</div>

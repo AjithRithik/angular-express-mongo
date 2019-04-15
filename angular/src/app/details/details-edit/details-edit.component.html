@@ -1,0 +1,484 @@
+
+<!-- Edit start-->
+<form #detailsForm="ngForm">
+  <div class="details-edit-container">
+      <!-- Header selection-->
+      <div class="p10" fxHide.lt-md>
+          <mat-card class="bgCardEdit">
+              <mat-card-content>
+                  <div fxFlex fxLayout="row">
+                      <!-- Date area-->
+                      <div class="DateText" fxFlex fxLayoutAlign="start center">
+                          12/12/2019
+                      </div>
+                      <!-- Date area end-->
+
+                      <!-- Branch Area-->
+                      <div fxFlex fxLayoutAlign="center center">
+                          <mat-form-field class="w360">
+                              <input type="text" [(ngModel)]="tableData.branch" placeholder="Branch" aria-label="Branch" 
+                               name="Branch" matInput [matAutocomplete]="branch"  required>
+                              <mat-autocomplete #branch="matAutocomplete">
+                                <mat-option *ngFor="let option of options" [value]="option">
+                                  {{option}}
+                                </mat-option>
+                              </mat-autocomplete>
+                              <button mat-icon-button matSuffix>
+                                <mat-icon *ngIf="!branch.isOpen" class="iconArrow">arrow_right</mat-icon>
+                                <mat-icon *ngIf="branch.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                            </button>  
+                            </mat-form-field>
+                      </div>
+                      <!-- Branch Area End-->
+                      
+                      <!-- area Drowdown-->
+                      <div fxFlex fxLayoutAlign="center end">
+                          <mat-form-field class="w360">
+                              <input type="text" [(ngModel)]="tableData.area" placeholder="Area" 
+                                aria-label="Area" name="Area" matInput [matAutocomplete]="Area" required>
+                              <mat-autocomplete #Area="matAutocomplete">
+                                <mat-option *ngFor="let option of options" [value]="option">
+                                  {{option}}
+                                </mat-option>
+                              </mat-autocomplete>
+                              <button mat-icon-button matSuffix>
+                                  <mat-icon *ngIf="!Area.isOpen" class="iconArrow">arrow_right</mat-icon>
+                                  <mat-icon *ngIf="Area.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                              </button>
+                            </mat-form-field>
+                      </div>
+                      <!-- Area Drop Down End-->
+                  </div>
+              </mat-card-content>
+          </mat-card>
+
+          <!-- Content area-->
+          <div class="Content-area">
+              <!-- Row 1-->
+              <div fxFlayout="row">
+                  <div fxFlex="35">
+                      <mat-form-field class="w360">
+                          <input type="text" name="Name" [(ngModel)]="tableData.name" placeholder="Customer Name" 
+                            aria-label="Customer" matInput [matAutocomplete]="Customer" required>
+                          <mat-autocomplete #Customer="matAutocomplete">
+                            <mat-option *ngFor="let option of options" [value]="option">
+                              {{option}}
+                            </mat-option>
+                          </mat-autocomplete>
+                          <button mat-icon-button matSuffix>
+                              <mat-icon *ngIf="!Customer.isOpen" class="iconArrow">arrow_right</mat-icon>
+                              <mat-icon *ngIf="Customer.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                          </button>
+                        </mat-form-field>
+                  </div>
+
+                  <div fxFlex>
+                      <mat-form-field class="w360">
+                          <input matInput name="code" placeholder="Customer Code" [(ngModel)]="tableData.code" required>
+                      </mat-form-field>
+                  </div>
+              </div>
+
+              <!-- Row 2-->
+            <div fxLayout="row">
+                  <mat-form-field class="w360">
+                      <input type="text" name="Transation" [(ngModel)]="tableData.mode" placeholder="Transation Mode" 
+                      aria-label="Transation" matInput [matAutocomplete]="Transation" required>
+                      <mat-autocomplete #Transation="matAutocomplete">
+                        <mat-option *ngFor="let option of options" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-autocomplete>
+                      <button mat-icon-button matSuffix>
+                          <mat-icon *ngIf="!Transation.isOpen" class="iconArrow">arrow_right</mat-icon>
+                          <mat-icon *ngIf="Transation.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                      </button>
+                    </mat-form-field>
+              </div>
+
+              <!-- Row 3-->
+              <div fxLayout="row">
+                  <div fxFlex="35">
+                      <mat-form-field class="w360">
+                          <input type="text" name="source" [(ngModel)]="tableData.source" placeholder="Bank (source)" 
+                            aria-label="source" matInput [matAutocomplete]="source" required>
+                          <mat-autocomplete #source="matAutocomplete">
+                            <mat-option *ngFor="let option of options" [value]="option">
+                              {{option}}
+                            </mat-option>
+                          </mat-autocomplete>
+                          <button mat-icon-button matSuffix>
+                              <mat-icon *ngIf="!source.isOpen" class="iconArrow">arrow_right</mat-icon>
+                              <mat-icon *ngIf="source.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                          </button>
+                        </mat-form-field>
+                  </div>
+
+                  <div fxFlex="35">
+                      <mat-form-field class="w360">
+                          <input type="text" name="destination" [(ngModel)]="tableData.des" placeholder="Bank (destination)" 
+                          aria-label="destination" matInput [matAutocomplete]="destination" required>
+                          <mat-autocomplete #destination="matAutocomplete">
+                            <mat-option *ngFor="let option of options" [value]="option">
+                              {{option}}
+                            </mat-option>
+                          </mat-autocomplete>
+                          <button mat-icon-button matSuffix>
+                              <mat-icon *ngIf="!destination.isOpen" class="iconArrow">arrow_right</mat-icon>
+                              <mat-icon *ngIf="destination.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                          </button>
+                        </mat-form-field>
+                  </div>
+
+                  <div fxFlex>
+                      <mat-form-field class="w360">
+                          <input matInput name="Voucher" placeholder="Voucher Number" [(ngModel)]="tableData.voucherNumber" required>
+                      </mat-form-field>
+                  </div>
+              </div>
+
+              <!-- Row 4-->
+              <div fxLayout="row">
+                  <div fxFlex="35">
+                      <mat-form-field class="w360">
+                          <input matInput placeholder="Amount" [(ngModel)]="tableData.amt" name="Amount" required>
+                      </mat-form-field>
+                  </div>
+                  <div fxFlex="35">
+                      <mat-form-field>
+                          <input matInput [(ngModel)]="tableData.transactionDate" name="tracsactionDate" 
+                          [matDatepicker]="picker" placeholder="Transation Date" required>
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                  </div>
+              </div>
+
+              <!-- Attachment Start-->
+              <div fxLayout="row">
+                <app-file-upload></app-file-upload>
+              </div>
+              <!-- Attachment End-->
+
+              <!-- Row 5-->
+              <div fxLayout="row" class="p10">
+                <div fxFlex fxLayoutAlign="center center">
+                    <button mat-raised-button color="warn" class="subBtn" (click)="addToTable(tableData)">Submit</button>
+                </div>
+              </div>
+
+          </div>
+          <!-- Content area End-->
+
+          <!-- Table View-->
+          <div class="table-container">
+              <table mat-table [dataSource]="dataSource" matSort>
+                  <!-- Date Column -->
+                  <ng-container matColumnDef="Date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                  </ng-container>
+    
+                  <!-- Customer Name Column -->
+                  <ng-container matColumnDef="Customer Name" sticky>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+    
+                  <!-- Customer Code Column -->
+                  <ng-container matColumnDef="Customer Code">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer Code </th>
+                    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+                  </ng-container>
+    
+                  <!-- Transaction Mode Column -->
+                  <ng-container matColumnDef="Transaction Mode">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction Mode </th>
+                    <td mat-cell *matCellDef="let element"> {{element.mode}} </td>
+                  </ng-container>
+    
+                  <!-- Bank (Source) Mode Column -->
+                  <ng-container matColumnDef="Bank (Source)">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Bank (Source) </th>
+                    <td mat-cell *matCellDef="let element"> {{element.source}} </td>
+                  </ng-container>
+    
+                  <!-- Bank (Desitionation) Mode Column -->
+                  <ng-container matColumnDef="Bank (Desitionation)">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Bank (Desitionation) </th>
+                    <td mat-cell *matCellDef="let element"> {{element.des}} </td>
+                  </ng-container>
+    
+                  <!-- Voucher Number Column -->
+                  <ng-container matColumnDef="voucher">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Voucher Number</th>
+                    <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
+                  </ng-container>
+
+                  <!-- Amount Mode Column -->
+                  <ng-container matColumnDef="Amount">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+                    <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
+                  </ng-container>
+    
+                  <!-- Attachement Mode Column -->
+                  <ng-container matColumnDef="Attachement">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Attachement </th>
+                    <td mat-cell *matCellDef="let element"> {{element.attachement}} </td>
+                  </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+          </div>
+      </div>
+
+      <!-- mobile Responsive -->
+      <div class="p10" fxHide.gt-md>
+          <mat-card class="bgCardEdit">
+              <mat-card-content>
+                  <div fxFlex fxLayout="column">
+                      <!-- Date area-->
+                      <div class="DateText pb5" fxFlex>
+                          12/12/2019
+                      </div>
+                      <!-- Date area end-->
+
+                      <!-- Branch Area-->
+                      <div fxFlex> 
+                          <mat-form-field class="w250">
+                              <input type="text" placeholder="Branch" [(ngModel)]="tableData.branch" name="branch"
+                              aria-label="Branch" matInput [matAutocomplete]="branch" required>
+                              <mat-autocomplete #branch="matAutocomplete">
+                                <mat-option *ngFor="let option of options" [value]="option">
+                                  {{option}}
+                                </mat-option>
+                              </mat-autocomplete>
+                              <button mat-icon-button matSuffix>
+                                <mat-icon *ngIf="!branch.isOpen" class="iconArrow">arrow_right</mat-icon>
+                                <mat-icon *ngIf="branch.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                            </button>  
+                            </mat-form-field>
+                      </div>
+                      <!-- Branch Area End-->
+                      
+                      <!-- area Drowdown-->
+                      <div fxFlex>
+                          <mat-form-field class="w250">
+                              <input type="text" placeholder="Area" [(ngModel)]="tableData.area" name="area"
+                              aria-label="Area" matInput [matAutocomplete]="Area" required>
+                              <mat-autocomplete #Area="matAutocomplete">
+                                <mat-option *ngFor="let option of options" [value]="option">
+                                  {{option}}
+                                </mat-option>
+                              </mat-autocomplete>
+                              <button mat-icon-button matSuffix>
+                                  <mat-icon *ngIf="!Area.isOpen" class="iconArrow">arrow_right</mat-icon>
+                                  <mat-icon *ngIf="Area.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                              </button>
+                            </mat-form-field>
+                      </div>
+                      <!-- Area Drop Down End-->
+                  </div>
+              </mat-card-content>
+          </mat-card>
+
+          <!-- Cutomer details-->
+          <div class="Content-area" fxLayout="column">
+              <div fxFlex>
+                  <mat-form-field class="w280">
+                      <input type="text" placeholder="Customer Name" [(ngModel)]="tableData.name"  name="name"
+                      aria-label="Customer" matInput [matAutocomplete]="Customer" required>
+                      <mat-autocomplete #Customer="matAutocomplete">
+                        <mat-option *ngFor="let option of options" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-autocomplete>
+                      <button mat-icon-button matSuffix>
+                          <mat-icon *ngIf="!Customer.isOpen" class="iconArrow">arrow_right</mat-icon>
+                          <mat-icon *ngIf="Customer.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                      </button>
+                    </mat-form-field>
+              </div>
+
+              <!-- Customer Name-->
+                <div fxFlex>
+                    <mat-form-field class="w280">
+                        <input matInput placeholder="Customer Code" [(ngModel)]="tableData.code" name="code" required>
+                    </mat-form-field>
+                </div>
+              <!-- Name End-->
+
+              <!-- Transaction Mode-->
+                <div fxFlex>
+                    <mat-form-field class="w280">
+                        <input type="text" placeholder="Transation Mode" [(ngModel)]="tableData.transation" name="transation"
+                        aria-label="Transation" matInput [matAutocomplete]="Transation" required>
+                        <mat-autocomplete #Transation="matAutocomplete">
+                          <mat-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-autocomplete>
+                        <button mat-icon-button matSuffix>
+                            <mat-icon *ngIf="!Transation.isOpen" class="iconArrow">arrow_right</mat-icon>
+                            <mat-icon *ngIf="Transation.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                        </button>
+                      </mat-form-field>
+                </div>
+              <!-- Transation Mode End-->
+
+              <!-- Bank Source-->
+                <div fxFlex>
+                    <mat-form-field class="w280">
+                        <input type="text" placeholder="Bank (source)" [(ngModel)]="tableData.source" name="source"
+                        aria-label="source" matInput [matAutocomplete]="source" required>
+                        <mat-autocomplete #source="matAutocomplete">
+                          <mat-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-autocomplete>
+                        <button mat-icon-button matSuffix>
+                            <mat-icon *ngIf="!source.isOpen" class="iconArrow">arrow_right</mat-icon>
+                            <mat-icon *ngIf="source.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                        </button>
+                      </mat-form-field>
+                </div>
+              <!-- Bank Source End-->
+
+              <!-- Bank Destionation-->
+                <div fxFlex>
+                    <mat-form-field class="w280">
+                        <input type="text" placeholder="Bank (destination)" [(ngModel)]="tableData.destination" name="destination"
+                         aria-label="destination" matInput [matAutocomplete]="destination" required>
+                        <mat-autocomplete #destination="matAutocomplete">
+                          <mat-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-autocomplete>
+                        <button mat-icon-button matSuffix>
+                            <mat-icon *ngIf="!destination.isOpen" class="iconArrow">arrow_right</mat-icon>
+                            <mat-icon *ngIf="destination.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                        </button>
+                      </mat-form-field>
+                </div>
+              <!-- Bank Destionation End-->
+
+              <!-- Voucher-->
+                <div fxFlex>
+                    <mat-form-field class="w280">
+                        <input matInput name="Voucher" placeholder="Voucher Number" [(ngModel)]="tableData.voucher" required>
+                    </mat-form-field>
+                </div>
+              <!-- Vocher End-->
+
+              <!-- Amount-->
+                <div fxFlex>
+                    <mat-form-field class="w280">
+                        <input matInput placeholder="Amount" [(ngModel)]="tableData.amount" name="Amount" required>
+                    </mat-form-field>
+                </div>
+              <!-- AMount End-->
+
+              <!-- Transation Date-->
+              <div fxFlex>
+                  <mat-form-field>
+                      <input matInput [matDatepicker]="pickerMobile" placeholder="Transation Date"
+                      [(ngModel)]="tableData.transactionDate" name="tracsactionDate" required>
+                      <mat-datepicker-toggle matSuffix [for]="pickerMobile"></mat-datepicker-toggle>
+                      <mat-datepicker #pickerMobile></mat-datepicker>
+                  </mat-form-field>
+              </div>
+              <!-- Transation Date-->
+
+              <!-- Attachment Start-->
+                <app-file-upload></app-file-upload>
+              <!-- Attachment End-->
+
+              <!-- submit button-->
+                <div fxLayout="row" class="p10">
+                      <button mat-raised-button color="warn" class="subBtn">Submit</button>
+                </div>
+              <!-- Button End-->
+          </div>
+          <!-- End Customer Details-->
+
+          <!-- Table Container Start-->
+          <div class="table-container-mob">
+            <table mat-table [dataSource]="dataSource" matSort>
+              <!-- Date Column -->
+              <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+              <!-- Customer Name Column -->
+              <ng-container matColumnDef="Customer Name" sticky>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
+
+              <!-- Customer Code Column -->
+              <ng-container matColumnDef="Customer Code">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer Code </th>
+                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+              </ng-container>
+
+              <!-- Transaction Mode Column -->
+              <ng-container matColumnDef="Transaction Mode">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction Mode </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              </ng-container>
+
+              <!-- Bank (Source) Mode Column -->
+              <ng-container matColumnDef="Bank (Source)">
+                <th mat-header-cell *matHeaderCellDef> Bank (Source) </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              </ng-container>
+
+              <!-- Bank (Desitionation) Mode Column -->
+              <ng-container matColumnDef="Bank (Desitionation)">
+                <th mat-header-cell *matHeaderCellDef> Bank (Desitionation) </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              </ng-container>
+
+              <!-- Voucher Number Column -->
+              <ng-container matColumnDef="voucher">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Voucher Number</th>
+                <td mat-cell *matCellDef="let element"> {{element.voucherNumber}} </td>
+              </ng-container>
+
+              <!-- Amount Mode Column -->
+              <ng-container matColumnDef="Amount">
+                <th mat-header-cell *matHeaderCellDef> Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              </ng-container>
+
+              <!-- Attachement Mode Column -->
+              <ng-container matColumnDef="Attachement">
+                <th mat-header-cell *matHeaderCellDef> Attachement </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <!-- Table Container End-->
+      </div>
+
+      <div class="float-upload-btn" ngClass.gt-md="btnDestop" ngClass.lt-md="btnMob">
+          <button fxHide.lt-md mat-raised-button color="warn" class="upBtn">
+            Upload
+          </button>
+          
+          <div fxHide.gt-md>
+              <div class="batchIcon">0</div>
+              <button  mat-fab color="warn" class="upBtnMob">
+                  <mat-icon>send</mat-icon>
+              </button>
+          </div>
+
+      </div>
+  </div>
+</form>
+  <!-- Edit End-->

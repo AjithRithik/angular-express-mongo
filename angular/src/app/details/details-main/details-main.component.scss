@@ -1,0 +1,13 @@
+.boxContainer{
+    position: absolute;
+    width: 100%;
+    top:60px;
+}
+
+.desktop{
+    height: calc(100% - 70px);
+}
+
+.mobile{
+    height: 100%;
+}

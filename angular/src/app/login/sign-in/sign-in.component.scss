@@ -1,0 +1,23 @@
+.logoContainer{
+    height: 100px;
+    padding: 10px;
+}
+
+.logo{
+    min-width: 130px;
+    max-width: 130px;
+}
+.signIn{
+    font-weight: bold;
+    color: #3f51b5;
+}
+
+.TitleHeader{
+    background: linear-gradient(to bottom right, #e6b568, #644006);
+}
+
+.signInContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

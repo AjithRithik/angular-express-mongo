@@ -1,0 +1,49 @@
+<div>
+    <!-- user Access popup Start-->
+    <div>
+        <div fxLayoutAlign="center Start" class="f18 bold pb5"> ADD NEW USER</div>
+        <!-- Content Start-->
+        <div mat-dialog-content>
+            <div fxLayout.gt-md="row" fxLayout.lt-md="column">
+                <div fxFlex ngClass.gt-md="p10">
+                    <mat-form-field class="w250">
+                        <input matInput placeholder="User Name" value="">
+                    </mat-form-field>
+                </div>
+                <div fxFlex ngClass.gt-md="p10">
+                    <mat-form-field class="w250">
+                        <input matInput placeholder="Email" value="">
+                    </mat-form-field>
+                </div>
+                <div fxFlex ngClass.gt-md="p10">
+                    <mat-form-field class="w150">
+                        <input type="text" placeholder="Role" aria-label="Role" matInput [matAutocomplete]="Role">
+                        <mat-autocomplete #Role="matAutocomplete">
+                          <mat-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-autocomplete>
+                        <button mat-icon-button matSuffix>
+                            <mat-icon *ngIf="!Role.isOpen" class="iconArrow">arrow_right</mat-icon>
+                            <mat-icon *ngIf="Role.isOpen" class="iconArrow">arrow_drop_down</mat-icon>
+                        </button>
+                      </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <!-- content End-->
+
+        <!-- Action Btn Start-->
+        <div mat-dialog-actions fxLayout="row" fxLayoutAlign.lt-md="center Start" fxLayoutAlign.gt-md="end center" class="p10">
+          <div>
+              <button mat-button (click)="dialogRef.close()">Cancel</button>
+          </div>
+
+          <div class="pl20">
+              <button mat-button class="tc--green">Add</button>
+          </div>
+
+        </div>
+        <!-- Action btn End-->
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="w100p">
+  <div class="flt">
+    <label class="fileContainer caps mt10 mb20 is-loading">
+        <span class="f14" *ngIf=!uploading>Attachement</span>
+        <span *ngIf="uploading">
+          uploading<span class="btn-spinner"></span>
+        </span>
+        <input type="file" [disabled]="uploading" (change)="onUploadOutput($event)" multiple id="fileUploder">
+      </label>  
+  </div>    
+  <div class="flt ml20 mb20">
+      <div *ngFor="let file of uploadedFile; index as Index">
+        <span class="tc--blue" *ngIf="file">{{file.fileName}}</span>
+        <span class="pl5"><mat-icon *ngIf="file && file.fileName" class="crossIcon" (click)="removeFile(file.id,Index)">close</mat-icon></span>
+      </div>  
+  </div>
+</div>

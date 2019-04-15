@@ -1,0 +1,86 @@
+.bgCardEdit{
+    background: #a7a0a033
+}
+
+.Content-area{
+    padding: 20px;
+}
+
+.details-edit-container{
+    height: 100%;
+}
+
+.subBtn{
+    width: 280px;
+}
+
+.upBtn{
+    width: 100px;
+    background: #c47f10;
+}
+
+.upBtnMob{
+    background: green;
+}
+
+.float-upload-btn{
+    position: absolute;
+    z-index: 9999999;
+}
+
+.btnDestop{
+    bottom: 20px;
+    right: 50px;
+}
+
+.btnMob{
+    bottom: 50px;
+    right: 10px;
+}
+
+.DateText{
+    font-size: 24px;
+    background: linear-gradient(to bottom, #fcb54b, #644006);
+    -webkit-background-clip: text;
+    font-weight: bold;
+    -webkit-text-fill-color: transparent;
+}
+
+.table-container table{
+    width: 100%;
+}
+
+.table-container-mob{
+    min-width: 100%;
+    max-width: 100%;
+    overflow: auto;
+}
+
+.table-container-mob table {
+    width: 1000px;
+  }
+
+.table-container-mob td.mat-column-star {
+    width: 50px;
+    padding-right: 8px;
+  }
+
+.table-container-mob  th.mat-column-position, td.mat-column-position {
+    width: 50px;
+    padding-left: 8px;
+  }
+
+  .batchIcon{
+    width: 15px;
+    height: 15px;
+    padding: 5px;
+    border-radius: 50%;
+    color: white;
+    background: blueviolet;
+    opacity: 0.7;
+    position: relative;
+    top: 15px;
+    text-align: center;
+    z-index: 9999999;
+    font-weight: bold;
+  }
