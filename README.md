@@ -1,2 +1,2 @@
 # bank
-Application to track the financial amount transformation between head and sub branches 
+Application to track the financial amount transaction between head and sub branches 
