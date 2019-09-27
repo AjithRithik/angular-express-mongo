@@ -14,34 +14,35 @@
 
                 <!-- conent body start-->
                 <div class="p10">
-                    <form #signInForm="ngForm">
+                    <form [formGroup]="userForm" (ngSubmit)="login()">
                         <div class="signIn f24" fxLayout="row" fxLayoutAlign="center center">Sign In</div>
                         <!-- User name-->
                         <div class="p10">
                             <mat-form-field class="w280" focused="true">
-                                <input matInput placeholder="User Name" name="userName" [(ngModel)]="user.userName" required>
+                                <input matInput placeholder="User Name" formControlName="userName"/>
                                 <button mat-icon-button matSuffix>
                                     <mat-icon>person</mat-icon>
                                 </button>
+                                <mat-error *ngIf="!userForm.controls['userName'].valid && (userForm.controls['userName'].touched)">Name Required</mat-error>
                             </mat-form-field>
                         </div>
-                        
                         <!-- Password field-->
                         <div class="p10">
-                            <mat-form-field class="w280" focused="true">
-                                <input matInput name="Password" [(ngModel)]="user.password"  placeholder="Password" [type]="hide ? 'text' : 'password'" required>
+                            <mat-form-field class="w280">
+                                <input [type]="hide ? 'text' : 'password'" #password matInput formControlName="password" placeholder="Password">
                                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                     <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
+                                <mat-error *ngIf="!userForm.controls['password'].valid && userForm.controls['password'].touched">Name Required</mat-error>
                             </mat-form-field>
                         </div>
 
                         <div fxLayoutAlign="center center">
-                            <button class="linkPassword" mat-button>Forgot Password?</button>
+                            <button type="button" class="linkPassword" mat-button>Forgot Password?</button>
                         </div>
 
                         <div class="p10" fxLayoutAlign="end end">
-                            <button type="submit" mat-raised-button color="primary" (click)="login(signInForm)">Login</button>
+                            <button mat-raised-button color="primary">Login</button>
                         </div>
                     </form>
                 </div>

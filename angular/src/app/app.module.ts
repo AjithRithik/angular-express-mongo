@@ -7,10 +7,14 @@ import { LoginModule } from './login/login.module';
 import { MaterialModuleModule } from './material-module/material-module.module';
 import 'hammerjs';
 import { DetailsModule } from './details/details.module';
+import { SamplePipe } from './sample.pipe';
+import { SampleDirective } from './sample.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SamplePipe,
+    SampleDirective
   ],
   imports: [
     BrowserModule,

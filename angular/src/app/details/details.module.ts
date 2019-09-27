@@ -15,6 +15,7 @@ import { CommonPopupComponent } from './common-popup/common-popup.component';
     MaterialModuleModule,
     DetailsRoutingModule
   ],
-  entryComponents:[CommonPopupComponent]
+  entryComponents:[CommonPopupComponent],
+  bootstrap: [DetailsEditComponent]
 })
 export class DetailsModule { }

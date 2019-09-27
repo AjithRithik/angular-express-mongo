@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td style="color: #ff00ff; background-color: #FFFFFF">
+                    Q
+                </td>
+                <td style="color: #ff00ff; background-color: #ff00ff">
+                    y
+                </td>
+                <td style="color: #ff00ff; background-color: #FFFFFF">
+                    a
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #ff00ff; background-color: #FFFFFF">
+                    Q
+                </td>
+                <td style="color: #FFFFFF; background-color: #FFFFFF">
+                    m
+                </td>
+                <td style="color: #ff00ff; background-color: #FFFFFF">
+                    o
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script>
+        function solution() {
+    // write your code in Javascript
+    //
+    // you can access DOM Tree using DOM Object Model:
+    //    document.getElementsByTagName
+    // or using jQuery:
+    //    $('some_tag')
+    //
+    // please note that element.innerText is not supported,
+    // you can use element.textContent instead.
+    var result = '';
+    var tbRow = $('table tbody tr');
+    if(tbRow && tbRow.length > 0){
+        $(tbRow).each(function(){
+            var tblData = $(this).find('td');
+            if(tblData && tblData.length>0){
+                $(tblData).each(function(){
+                    console.log($(this).css('color'))
+                    console.log($(this).css('background-color'))
+                    if($(this).css('color') !== $(this).css('background-color')){
+                        result += $(this).text();
+                    }
+                })
+            }
+        })
+    }
+    return result;
+}
+console.log(solution());
+    </script>
+</body>
+</html>

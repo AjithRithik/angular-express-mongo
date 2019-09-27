@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Form } from '@angular/forms';
+import { LoginService } from '../login.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,21 +9,40 @@ import { Form } from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  //Declaration
+  userForm: any;
+  constructor(private loginService: LoginService, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.userForm = this.fb.group({
+      userName: ['', [Validators.required, Validators.email]],
+      password:['', Validators.required]
+    })
   }
 
   //Variable declaration;
   user:any = {};
 
-  //function to trigger the login 
-  login(form):void{
-    if(form.valid){
-      console.log('login Sucess');
+  //function to trigger the login  
+  login():void{
+    if(this.userForm.valid){
+      this.isLogin(this.userForm.value);
     }else{
-      console.log('passWord Required')
+      console.log('Errror');
     }
+  }
+
+
+  //Function to trigger the login function where the user is login or not
+  isLogin(userObj):void{
+    this.loginService.authentication(userObj).subscribe(
+      res=>{
+        console.log(res);
+        if(res){
+          console.log(res);
+          // console.log('login');
+        }
+      });
   }
 
 }

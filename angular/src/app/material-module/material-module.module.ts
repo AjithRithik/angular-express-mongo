@@ -20,6 +20,7 @@ import {
 import { ScollRepeatComponent } from './scoll-repeat/scoll-repeat.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { FileExceedComponent } from './file-exceed/file-exceed.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ScollRepeatComponent, FileUploadComponent, FileExceedComponent],
@@ -39,7 +40,8 @@ import { FileExceedComponent } from './file-exceed/file-exceed.component';
     MatSortModule,
     FormsModule,
     MatSnackBarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   exports:[
     FlexLayoutModule,
@@ -58,7 +60,8 @@ import { FileExceedComponent } from './file-exceed/file-exceed.component';
     ScollRepeatComponent,
     FileUploadComponent,
     FileExceedComponent,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule
   ]
 })
 export class MaterialModuleModule { }
